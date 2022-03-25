@@ -7,7 +7,7 @@ namespace UserRegistration
         const string namePattern = @"^[A-Z][a-zA-Z]{2,}$";
         const string emailPattern = @"^[A-Za-z0-9]{3,}([.][A-Za-z0-9]{3,})?[@][a-zA-Z]{2,}[.][a-zA-Z]{2,}([.][a-zA-Z]{2})?$";
         const string mobilePattern = @"^[0-9]{2}[ ][0-9]{10}$";
-        const string passwordPattern = @"^[\w\S]{8,}$";
+        const string passwordPattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$";
 
         private string firstName;
         private string lastName;
