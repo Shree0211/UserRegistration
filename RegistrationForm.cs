@@ -10,9 +10,11 @@ namespace UserRegistration
     internal class RegistrationForm
     {
         private string firstName;
+        private string lastName;
         public void GetInfo()
         {
             firstName = GetValidName("First Name: ");
+            firstName = GetValidName("Last Name: ");
         }
 
         private string GetValidName(string message)
