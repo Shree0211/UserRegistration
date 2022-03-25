@@ -39,7 +39,15 @@ namespace UserRegistration
                     Console.WriteLine("Invalid!");
             } while (true);
         }
+        public static void SampleEmail()
+        {
+            string[] info ={"abc@yahoo.com","abc-100@yahoo.com","abc.100@yahoo.com","abc-100@abc.net","abc111@abc.com","abc+100@gmail.com",
+                                   "abc.100@abc.com.au","abc@1.com","abc@gmail.com.com","abc","abc@.com.my","abc123@gmail.a","abc123@.com",
+                                   "abc123@.com.com",".abc@abc.com","abc()*@gmail.com","abc@%*.com","abc.@gmail.com","abc@gmail.com.1a",
+                                   "abc@gmail.com.aa.au","abc..2002@gmail.com"};
 
+            Console.WriteLine("Validate Sample Email Id");
+        }
         private static bool IsValid(string info, string pattern)
         {
             return Regex.IsMatch(info, pattern);
