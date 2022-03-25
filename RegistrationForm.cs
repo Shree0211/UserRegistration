@@ -9,32 +9,37 @@ namespace UserRegistration
 {
     internal class RegistrationForm
     {
+        private const string namePattern = @"^[A-Z][a-zA-Z]{2,}$";
+        private const string emailPattern = @"^[A-Za-z0-9]{3,}([.][A-Za-z0-9]{3,})?[@][a-zA-Z]{2,}[.][a-zA-Z]{2,}([.][a-zA-Z]{2})?$";
+
         private string firstName;
         private string lastName;
+        private string email;
+
         public void GetInfo()
         {
-            firstName = GetValidName("First Name: ");
-            firstName = GetValidName("Last Name: ");
+            firstName = GetValidInfo("First Name: ", namePattern);
+            lastName = GetValidInfo("Last Name: ", namePattern);
+            email = GetValidInfo("Email: ", emailPattern);
         }
 
-        private string GetValidName(string message)
+        private static string GetValidInfo(string message, string pattern)
         {
-            string name;
+            string info;
             do
             {
                 Console.Write(message);
-                name = Console.ReadLine();
-                if (IsValidName(name))
-                    return name;
+                info = Console.ReadLine();
+                if (IsValid(info, pattern))
+                    return info;
                 else
-                    Console.WriteLine("Invalid! (First letter caps, Min 3 characters)");
+                    Console.WriteLine("Invalid!");
             } while (true);
         }
 
-        private bool IsValidName(string name)
+        private static bool IsValid(string info, string pattern)
         {
-            string pattern = @"^[A-Z][a-zA-Z]{2,}$";
-            return Regex.IsMatch(name, pattern);
+            return Regex.IsMatch(info, pattern);
         }
     }
 }
